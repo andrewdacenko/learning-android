@@ -21,6 +21,9 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		sbWeight = (SeekBar) findViewById(R.id.sbWeight);
+		
+		sbWeight.setOnSeekBarChangeListener(this);
+		
 		btn1 = (Button) findViewById(R.id.btn1);
 		btn2 = (Button) findViewById(R.id.btn2);
 		lParams1 = (LinearLayout.LayoutParams) btn1.getLayoutParams();
@@ -30,7 +33,14 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 	@Override
 	public void onProgressChanged(SeekBar seekBar, int progress,
 			boolean fromUser) {
-		// TODO Auto-generated method stub
+		int leftValue = progress;
+		int rightValue = seekBar.getMax() - progress;
+		// настраиваем вес
+		lParams1.weight = leftValue;
+		lParams2.weight = rightValue;
+		// в текст кнопок пишем значения переменных
+		btn1.setText(String.valueOf(leftValue));
+		btn2.setText(String.valueOf(rightValue));
 	}
 
 	@Override
