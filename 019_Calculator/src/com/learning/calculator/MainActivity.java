@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -11,6 +12,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends Activity implements OnClickListener {
+
+	final int MENU_RESET_ID = 1;
+	final int MENU_QUIT_ID = 2;
+
 	EditText etNum1;
 	EditText etNum2;
 	Button btnAdd;
@@ -80,11 +85,31 @@ public class MainActivity extends Activity implements OnClickListener {
 		tvResult.setText(num1 + " " + oper + " " + num2 + " = " + result);
 	}
 
+	// создание меню
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
+		// TODO Auto-generated method stub
+		menu.add(0, MENU_RESET_ID, 0, "Reset");
+		menu.add(0, MENU_QUIT_ID, 0, "Quit");
+		return super.onCreateOptionsMenu(menu);
 	}
 
+	// обработка нажатий на пункты меню
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// TODO Auto-generated method stub
+		switch (item.getItemId()) {
+		case MENU_RESET_ID:
+			// очищаем поля
+			etNum1.setText("");
+			etNum2.setText("");
+			tvResult.setText("");
+			break;
+		case MENU_QUIT_ID:
+			// выход из приложения
+			finish();
+			break;
+		}
+		return super.onOptionsItemSelected(item);
+	}
 }
