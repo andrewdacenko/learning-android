@@ -6,8 +6,9 @@ import android.view.Menu;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
+import android.widget.SeekBar.OnSeekBarChangeListener;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements OnSeekBarChangeListener {
 	SeekBar sbWeight;
 	Button btn1;
 	Button btn2;
@@ -24,6 +25,22 @@ public class MainActivity extends Activity {
 		btn2 = (Button) findViewById(R.id.btn2);
 		lParams1 = (LinearLayout.LayoutParams) btn1.getLayoutParams();
 		lParams2 = (LinearLayout.LayoutParams) btn2.getLayoutParams();
+	}
+
+	@Override
+	public void onProgressChanged(SeekBar seekBar, int progress,
+			boolean fromUser) {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void onStartTrackingTouch(SeekBar seekBar) {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void onStopTrackingTouch(SeekBar seekBar) {
+		// TODO Auto-generated method stub
 	}
 
 	@Override
