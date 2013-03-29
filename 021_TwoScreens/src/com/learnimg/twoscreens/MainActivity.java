@@ -1,6 +1,7 @@
 package com.learnimg.twoscreens;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -24,7 +25,8 @@ public class MainActivity extends Activity implements OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.btnActTwo:
-			// TODO Call second activity
+			Intent intent = new Intent(this, ActivityTwo.class);
+			startActivity(intent);
 			break;
 		default:
 			break;
