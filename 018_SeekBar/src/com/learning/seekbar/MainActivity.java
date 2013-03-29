@@ -1,23 +1,36 @@
 package com.learning.seekbar;
 
-import android.os.Bundle;
 import android.app.Activity;
+import android.os.Bundle;
 import android.view.Menu;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.SeekBar;
 
 public class MainActivity extends Activity {
+	SeekBar sbWeight;
+	Button btn1;
+	Button btn2;
+	LinearLayout.LayoutParams lParams1;
+	LinearLayout.LayoutParams lParams2;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    }
+	/** Called when the activity is first created. */
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		sbWeight = (SeekBar) findViewById(R.id.sbWeight);
+		btn1 = (Button) findViewById(R.id.btn1);
+		btn2 = (Button) findViewById(R.id.btn2);
+		lParams1 = (LinearLayout.LayoutParams) btn1.getLayoutParams();
+		lParams2 = (LinearLayout.LayoutParams) btn2.getLayoutParams();
+	}
 
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-    
 }
