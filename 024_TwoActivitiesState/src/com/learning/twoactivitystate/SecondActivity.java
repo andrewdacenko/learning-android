@@ -3,7 +3,6 @@ package com.learning.twoactivitystate;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Button;
 
 public class SecondActivity extends Activity {
 
