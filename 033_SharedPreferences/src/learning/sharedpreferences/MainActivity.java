@@ -33,6 +33,8 @@ public class MainActivity extends Activity implements OnClickListener {
 
 		btnLoad = (Button) findViewById(R.id.btnLoad);
 		btnLoad.setOnClickListener(this);
+
+		loadText();
 	}
 
 	@Override
@@ -69,6 +71,12 @@ public class MainActivity extends Activity implements OnClickListener {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
+	}
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		saveText();
 	}
 
 }
